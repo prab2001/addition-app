@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addition-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: addition-app
+  template:
+    metadata:
+      labels:
+        app: addition-app
+    spec:
+      containers:
+      - name: addition-app
+        image: pragir/addition-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
